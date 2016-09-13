@@ -1,3 +1,5 @@
+package secondlab;
+
 /**
  * Created by Valentina on 13.09.2016.
  */
