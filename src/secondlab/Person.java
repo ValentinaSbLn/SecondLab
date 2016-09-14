@@ -20,7 +20,7 @@ class Person {
          */
         public boolean marry(Person person) {
 
-            if (this.man!=person.man){
+            if (this.man!=person.man){ //TODO: null pointer; TODO: check: are they already spouse?
                 this.divorce();
                 person.divorce();
                 spouse=person;
@@ -37,6 +37,7 @@ class Person {
          */
         public boolean divorce() {
             if (this.spouse!=null) {
+                //TODO: spouse.spouse == null;
                 spouse = null;
                 return true;
             }

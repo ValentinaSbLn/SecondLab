@@ -13,7 +13,7 @@ public class Main {
        if (Harry.marry(Mary))
            System.out.println("Harry и Mary поженились");
        else
-           System.out.println("Не поженились");
+           System.out.println("Не поженились"); //TODO: who?
 
         if (David.marry(Anna))
             System.out.println("David и Anna поженились");
@@ -40,7 +40,12 @@ public class Main {
         else
             System.out.println("Не поженились");
 
-
+//    //TODO: adequate checks are needed.
+//    //TODO: like this:
+//    Person manIgor = new Person(true,"Igor");
+//        if(manIgor.marry(null)){
+//                System.out.println("ERROR: manIgor.marry(null)");
+//                }
 
     }
 }
