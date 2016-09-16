@@ -1,6 +1,8 @@
 package secondlab;
 
 
+import java.util.Objects;
+
 class Person {
 
         private final boolean man;
@@ -56,20 +58,14 @@ class Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Person person = (Person) o;
-
-        if (man != person.man) return false;
-        if (!name.equals(person.name)) return false;
-        return spouse.equals(person.spouse);
-
+        return man == person.man &&
+                Objects.equals(name, person.name) &&
+                Objects.equals(spouse, person.spouse);
     }
 
     @Override
     public int hashCode() {
-        int result = (man ? 1 : 0);
-        result = 31 * result + name.hashCode();
-        result = 31 * result + spouse.hashCode();
-        return result;
+        return Objects.hash(man, name, spouse);
     }
 }
