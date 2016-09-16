@@ -5,40 +5,30 @@ package secondlab;
  */
 public class Main {
     public static void main(String[] args) {
-        Person Harry = new Person(true, "Harry");
-        Person Mary = new Person(false, "Mary");
-        Person Anna = new Person(false, "Anna");
-        Person David = new Person(true, "David");
+        Person manHarry = new Person(true, "Harry");
+        Person womanMary = new Person(false, "Mary");
+        Person womanAnna = new Person(false, "Anna");
+        Person manDavid = new Person(true, "David");
 
-       if (Harry.marry(Mary))
-           System.out.println("Harry и Mary поженились");
-       else
-           System.out.println("Не поженились"); //TODO: who?
+        if (manHarry.marry(null)) {
+            System.out.println("TRUE: manHarry.marry(null)");
+        }else System.out.println("ERROR: manHarry.marry(null)");
 
-        if (David.marry(Anna))
-            System.out.println("David и Anna поженились");
-        else
-            System.out.println("Не поженились");
+        if (manHarry.marry(manDavid)) {
+            System.out.println("TRUE: manHarry.marry(manDavid)");
+        }else System.out.println("ERROR: manHarry.marry(manDavid)");
 
-        if (David.marry(Mary))
-            System.out.println("David и Mary поженились");
-        else
-            System.out.println("Не поженились");
+        if (manHarry.marry(womanMary)) {
+            System.out.println("TRUE: manHarry.marry(womanMary)");
+        } else System.out.println("ERROR: manHarry.marry(womanMary)");
 
-        if (Harry.marry(Anna))
-            System.out.println("Harry и Anna поженились");
-        else
-            System.out.println("Не поженились");
+        if (manHarry.marry(womanMary)) {
+            System.out.println("TRUE: manHarry.marry(womanMary)");
+        } else System.out.println("ERROR: manHarry.marry(womanMary)");
 
-        if (Mary.marry(Anna))
-            System.out.println("Mary и Anna поженились");
-        else
-            System.out.println("Не поженились");
-
-        if (David.marry(Harry))
-            System.out.println("Mary и Anna поженились");
-        else
-            System.out.println("Не поженились");
+        if (manHarry.marry(womanAnna)) {
+            System.out.println("TRUE: manHarry.marry(womanAnna)");
+        } else System.out.println("ERROR: manHarry.marry(womanAnna)");
 
 //    //TODO: adequate checks are needed.
 //    //TODO: like this:

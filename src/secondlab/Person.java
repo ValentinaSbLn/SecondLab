@@ -19,29 +19,57 @@ class Person {
          * @return - returns true if this person has another gender than passed person and they are not husband and wife, false otherwise
          */
         public boolean marry(Person person) {
+            if (person == null)
+                return false;
+            else {
+                if (this.man != person.man) {
 
-            if (this.man!=person.man){ //TODO: null pointer; TODO: check: are they already spouse?
-                this.divorce();
-                person.divorce();
-                spouse=person;
-                person.spouse=this;
+                    if (person.equals(spouse)) {
+                        return false;
+                    } else {
+                        //TODO: null pointer; TODO: check: are they already spouse?
+                        divorce();
+                        spouse = person;
+                        person.spouse = this;
+                        return true;
+                    }
 
-                return true;
+                } else return false;
             }
-            else return false;
+
         }
+
 
         /**
          * Sets spouse = null if spouse is not null
          * @return true - if person status has been changed
          */
         public boolean divorce() {
-            if (this.spouse!=null) {
-                //TODO: spouse.spouse == null;
+            if (this.spouse != null) {
+                spouse.spouse = null;
                 spouse = null;
                 return true;
-            }
-            else return false;
-          }
+            } else return false;
+        }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (man != person.man) return false;
+        if (!name.equals(person.name)) return false;
+        return spouse.equals(person.spouse);
 
     }
+
+    @Override
+    public int hashCode() {
+        int result = (man ? 1 : 0);
+        result = 31 * result + name.hashCode();
+        result = 31 * result + spouse.hashCode();
+        return result;
+    }
+}
